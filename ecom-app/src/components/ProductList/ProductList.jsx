@@ -31,6 +31,8 @@ const ProductList = () => {
     getProducts();
   }, []);
 
+  console.log({ products });
+
   return (
     <div className="App">
       {products &&
@@ -40,7 +42,7 @@ const ProductList = () => {
             <h3 className="products__name">{products.itemName}</h3>
             {/* GET THE ID FROM THE IMAGE CLICK TO GO TO PRODUCT PAGE */}
             {/* The link works, but the page does not have the ID of the item */}
-            <Link to="/products/:" {...products.id}>
+            <Link to={`/products/${products.id}`}>
               <img
                 src={products.image}
                 alt="To be added to database"
