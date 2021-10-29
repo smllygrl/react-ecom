@@ -4,7 +4,7 @@ import Cara from "../../components/Cara";
 const HomePage = () => {
   return (
     <div>
-      <h1>I am the Home Page</h1>
+      <h1>Litter Box Central</h1>
       <Cara />
       <ProductList />
     </div>
