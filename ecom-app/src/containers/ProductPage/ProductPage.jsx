@@ -32,6 +32,29 @@ const ProductPage = () => {
     return <h1>Product with id: {id} not found</h1>;
   }
 
+  const updateFave = async (id, isFavourite) => {
+    const colRef = firestore.collection("products");
+    const docRef = colRef.doc(id);
+    await docRef.update(isFavourite);
+  };
+
+  let buttonText = "Make me ur fave?";
+
+  // make asyn again when playing with it
+  const handleClick = () => {
+    // let bool = await product.isFavourite;
+    // const item = await product.id;
+    // if bool = false, let bool = true, let buttonText = favourite, updateFave(item, bool)
+    if ((buttonText = "Make me ur fave?")) {
+      let buttonText = "Favourited!";
+      // updateFave(item, bool);
+    } else {
+      buttonText = "Make me ur fave?";
+      // updateFave(item, bool);
+      return buttonText;
+    }
+  };
+
   return (
     <div className="indivProduct">
       <div className="indivProduct__left">
@@ -48,6 +71,9 @@ const ProductPage = () => {
           {"  "}
           Only {product.quantityAll} items left!
         </p>
+        <button className="indivProduct__btn" onClick={handleClick}>
+          {buttonText}
+        </button>
       </div>
     </div>
   );
