@@ -1,0 +1,46 @@
+.indivProduct {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 1000px;
+  height: 360px;
+  border: 1px solid black;
+  margin-left: 350px;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+  &__title {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+  }
+  &__image {
+    width: 260px;
+    height: 260px;
+  }
+
+  &__right {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid black;
+    padding-left: 20px;
+    height: 100%;
+  }
+  &__price {
+    font-style: italic;
+  }
+  &__quantity {
+    color: tomato;
+    font-weight: bolder;
+    font-style: italic;
+  }
+}

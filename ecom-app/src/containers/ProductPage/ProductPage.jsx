@@ -33,11 +33,22 @@ const ProductPage = () => {
   }
 
   return (
-    <div>
-      <h2>{product.itemName}</h2>
-      <img src={product.image} alt="To be added to database" />
-      <p>Price: {product.price}</p>
-      <p>Only {product.quantityAll} items left!</p>
+    <div className="indivProduct">
+      <div className="indivProduct__left">
+        <h2 className="indivProduct__title">{product.itemName}</h2>
+        <img
+          className="indivProduct__image"
+          src={product.image}
+          alt="To be added to database"
+        />
+      </div>
+      <div className="indivProduct__right">
+        <p className="indivProduct__price">Price: ${product.pricePerUnit}</p>
+        <p className="indivProduct__quantity">
+          {"  "}
+          Only {product.quantityAll} items left!
+        </p>
+      </div>
     </div>
   );
 };

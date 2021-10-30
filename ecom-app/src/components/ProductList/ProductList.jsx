@@ -1,5 +1,3 @@
-// ITEMS FOR THE PRODUCT GRID
-
 import { useState, useEffect } from "react";
 import firestore from "../../services/firestore/firestore";
 import { Link } from "react-router-dom";
@@ -34,7 +32,7 @@ const ProductList = () => {
   console.log({ products });
 
   return (
-    <div className="App">
+    <div className="products">
       {products &&
         products.map((products) => (
           <div key={products.id}>
@@ -49,7 +47,9 @@ const ProductList = () => {
                 className="products__image"
               />
             </Link>
-            <p className="products__price">price: ${products.pricePerUnit}</p>
+            <p className="products__price">
+              Click image for more details. ${products.pricePerUnit}
+            </p>
           </div>
         ))}
     </div>

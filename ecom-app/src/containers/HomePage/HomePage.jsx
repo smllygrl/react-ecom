@@ -4,8 +4,13 @@ import Cara from "../../components/Cara";
 const HomePage = () => {
   return (
     <div>
-      <h1>Litter Box Central</h1>
+      <h1 className="homePage__title">Litter Box Central</h1>
+      <br />
+      <br />
+      <br />
       <Cara />
+      <br />
+      <br />
       <ProductList />
     </div>
   );

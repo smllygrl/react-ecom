@@ -1,0 +1,16 @@
+.navBar {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  &__link {
+    color: slategrey;
+    list-style-type: none;
+    :link {
+      text-decoration: none;
+    }
+    :visited {
+      color: slategrey;
+      text-decoration: none;
+    }
+  }
+}

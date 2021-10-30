@@ -1,0 +1,15 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 50px;
+  &__name {
+    color: burlywood;
+    background-color: slategrey;
+  }
+  &__price {
+    color: burlywood;
+    background-color: slategrey;
+  }
+}

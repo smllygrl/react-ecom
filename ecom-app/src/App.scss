@@ -1,7 +1,100 @@
-.cara {
+.homePage {
+  &__title {
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+    background-color: cadetblue;
+  }
+}
+
+.carousel {
+  &__title {
+    background-color: burlywood;
+  }
+  &__subtitle {
+    background-color: #5f9ea0;
+  }
+  &__image {
+  }
+}
+
+.products {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 50px;
+  &__name {
+    color: burlywood;
+    background-color: slategrey;
+  }
+  &__price {
+    color: burlywood;
+    background-color: slategrey;
+  }
+}
+
+.indivProduct {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  height: 500px;
-  width: 750px;
+  justify-self: center;
+  align-items: center;
+  width: 1000px;
+  height: 360px;
+  border: 1px solid black;
+  margin-left: 23%;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+  &__title {
+    text-align: left;
+    font-weight: bold;
+    font-size: large;
+  }
+  &__image {
+    width: 260px;
+    height: 260px;
+  }
+
+  &__right {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid black;
+    height: 100%;
+  }
+  &__price {
+    font-style: italic;
+  }
+  &__quantity {
+    color: tomato;
+    font-weight: bolder;
+    font-style: italic;
+  }
+}
+
+.navBar {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  &__link {
+    color: slategrey;
+    list-style-type: none;
+    :link {
+      text-decoration: none;
+    }
+    :visited {
+      color: slategrey;
+      text-decoration: none;
+    }
+  }
 }
