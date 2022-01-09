@@ -1,5 +1,7 @@
 # E-Commerce Website
 
+UPDATE: 10/ 1/ 21 - I am currently working to re-establish my Firebase/ Firestore data, as it has expired.
+
 This was the fifth and final individual project we were given at _nology.
 
 We were to build an ecommerce project using React and Firestore.
