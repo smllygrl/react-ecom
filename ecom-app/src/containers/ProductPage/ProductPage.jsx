@@ -5,6 +5,7 @@ import firestore from "../../services/firestore/firestore";
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [count, setCount] = useState(false);
 
   const cleanRecord = (docSnapshot) => ({
     id: docSnapshot.id,
@@ -18,6 +19,19 @@ const ProductPage = () => {
     return cleanRecord(docSnap);
   };
 
+  // update DB w/ count?
+  useEffect(() => {
+    const quantity = async () => {
+      const partial = await findProduct(id);
+
+      setQuantity(id.quantityAll - count);
+    };
+
+    return () => {
+      console.log("(Unmount) Current value of count", count);
+    };
+  }, [count]);
+
   useEffect(() => {
     const populatePage = async () => {
       const data = await findProduct(id);
@@ -27,32 +41,31 @@ const ProductPage = () => {
     populatePage();
   }, [id]);
 
+  const toggleFavorite = async (product) => {
+    const partial = {
+      favorite: !product.favorite,
+    };
+    await updateProduct(product.id, partial);
+    findProduct();
+  };
+
+  const setQuantity = async (n) => {
+    const partial = {
+      quantityAll: !product.quantityAll,
+    };
+    await updateProduct(product.id, partial);
+    findProduct();
+  };
+
   if (!product) {
     console.log(`Product with id: ${id} not found`);
     return <h1>Product with id: {id} not found</h1>;
   }
 
-  const updateFave = async (id, isFavourite) => {
+  const updateProduct = async (id, partial) => {
     const colRef = firestore.collection("products");
     const docRef = colRef.doc(id);
-    await docRef.update(isFavourite);
-  };
-
-  let buttonText = "Make me ur fave?";
-
-  // make asyn again when playing with it
-  const handleClick = () => {
-    // let bool = await product.isFavourite;
-    // const item = await product.id;
-    // if bool = false, let bool = true, let buttonText = favourite, updateFave(item, bool)
-    if ((buttonText = "Make me ur fave?")) {
-      let buttonText = "Favourited!";
-      // updateFave(item, bool);
-    } else {
-      buttonText = "Make me ur fave?";
-      // updateFave(item, bool);
-      return buttonText;
-    }
+    await docRef.update(partial);
   };
 
   return (
@@ -71,8 +84,21 @@ const ProductPage = () => {
           {"  "}
           Only {product.quantityAll} items left!
         </p>
-        <button className="indivProduct__btn" onClick={handleClick}>
-          {buttonText}
+
+        <button onClick={() => setCount(count + 1)} {...setQuantity}>
+          +
+        </button>
+        <p>In cart: {count}</p>
+        <button onClick={() => setCount(count - 1)} {...setQuantity}>
+          -
+        </button>
+        <button
+          type="checkbox"
+          variant="outline-success"
+          checked={product.isFavorite}
+          onClick={() => toggleFavorite(product)}
+        >
+          {product.favorite ? "I am a favourite!" : "Add to Favourites"}
         </button>
       </div>
     </div>
